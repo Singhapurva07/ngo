@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarthya Welfare Trust - Empowering Communities Since 2017</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --dark-blue: #1e3a8a;
+            --navy-blue: #1e293b;
+            --light-yellow: #fef3c7;
+            --yellow: #fbbf24;
+            --cream: #fffbeb;
+            --white: #ffffff;
+            --text-primary: #1e40af;
+            --text-secondary: #3b82f6;
+            --bg-primary: #fef3c7;
+            --bg-secondary: #fffbeb;
+            --shadow: rgba(30, 64, 175, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-blue: #60a5fa;
+            --light-blue: #93c5fd;
+            --dark-blue: #2563eb;
+            --navy-blue: #f1f5f9;
+            --light-yellow: #1e293b;
+            --yellow: #374151;
+            --cream: #0f172a;
+            --white: #1e293b;
+            --text-primary: #60a5fa;
+            --text-secondary: #93c5fd;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --shadow: rgba(96, 165, 250, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--light-blue), var(--dark-blue));
+            top: 60%;
+            right: 10%;
+            animation-delay: 8s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, var(--dark-blue), var(--primary-blue));
+            top: 30%;
+            right: 30%;
+            animation-delay: 16s;
+        }
+
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, var(--navy-blue), var(--light-blue));
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 12s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(50px, -80px) rotate(90deg) scale(1.2);
+            }
+            50% {
+                transform: translate(-40px, -120px) rotate(180deg) scale(0.8);
+            }
+            75% {
+                transform: translate(80px, -60px) rotate(270deg) scale(1.4);
+            }
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            animation: particleFloat 20s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(254, 243, 199, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: var(--white);
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .theme-toggle:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(30, 64, 175, 0.1);
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            border: 3px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 3px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 400px;
+            height: 400px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.2);
+            border: 5px solid var(--primary-blue);
+            animation: logoFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-logo img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(30, 64, 175, 0.3));
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .dashboard-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(30, 64, 175, 0.15);
+        }
+
+        .dashboard-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+            color: white;
+        }
+
+        .dashboard-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-label {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .about-content {
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .founder-info {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .founder-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-title {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(30, 64, 175, 0.08);
+            text-align: center;
+            border: 3px solid var(--primary-blue);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Vision Mission Section */
+        .vision-mission {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .vision-mission-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .vision-card {
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(30, 64, 175, 0.15);
+        }
+
+        .vision-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+            color: white;
+        }
+
+        .vision-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .vision-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 0;
+        }
+
+        .programs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(30, 64, 175, 0.15);
+        }
+
+        .program-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .program-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .program-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .program-content {
+            padding: 3rem 2rem;
+        }
+
+        .program-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .program-features {
+            list-style: none;
+        }
+
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .program-features li::before {
+            content: '✓';
+            background: var(--primary-blue);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+
+        .volunteer-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .volunteer-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .volunteer-description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .volunteer-btn {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .volunteer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-logo {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero-logo img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .dashboard-grid,
+            .vision-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                text-align: center;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="floating-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-08%20151141-lKPtr6tYzbHqTbSwx6nzR4j5j8FOxk.png" alt="Samarthya Welfare Trust Logo">
+                Samarthya Welfare Trust
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span id="theme-icon">🌙</span>
+                        <span id="theme-text">Dark</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Empowering <span class="highlight">Communities</span> Through <span class="highlight">Purpose</span></h1>
+                <div class="hero-subtitle">🌟 Transforming Lives Since 2017 • 25 Women Leaders • 1000+ Lives Impacted</div>
+                <p class="hero-description">
+                    Building a sustainable and aware India through women empowerment, environmental conservation, 
+                    health initiatives, and dedicated social service. Join us in creating lasting positive change 
+                    in communities across Jharkhand and beyond.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#programs" class="btn btn-primary">
+                        Explore Our Programs →
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        Join Our Mission
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-08%20151141-lKPtr6tYzbHqTbSwx6nzR4j5j8FOxk.png" alt="Samarthya Welfare Trust Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="dashboard fade-in">
+        <div class="dashboard-container">
+            <div class="section-header">
+                <div class="section-badge">Our Impact Dashboard</div>
+                <h2 class="section-title">Making a Difference Every Day</h2>
+                <p class="section-description">
+                    Comprehensive overview of our social impact, community programs, and transformative initiatives 
+                    across multiple domains of social welfare and development.
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🏥</div>
+                    <div class="dashboard-number">500+</div>
+                    <div class="dashboard-label">Health Checkups</div>
+                    <div class="dashboard-description">
+                        Dental camps, eye examinations, full-body health screenings, and medical assistance programs
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🎓</div>
+                    <div class="dashboard-number">200+</div>
+                    <div class="dashboard-label">Educational Programs</div>
+                    <div class="dashboard-description">
+                        Awareness campaigns, literacy drives, educational material distribution, and skill development
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🌱</div>
+                    <div class="dashboard-number">1000+</div>
+                    <div class="dashboard-label">Trees Planted</div>
+                    <div class="dashboard-description">
+                        Environmental conservation through massive tree plantation drives and awareness programs
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🍽️</div>
+                    <div class="dashboard-number">300+</div>
+                    <div class="dashboard-label">Families Fed</div>
+                    <div class="dashboard-description">
+                        Food distribution to leprosy ashrams, old age homes, and underprivileged communities
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🏠</div>
+                    <div class="dashboard-number">50+</div>
+                    <div class="dashboard-label">Infrastructure Projects</div>
+                    <div class="dashboard-description">
+                        Toilet facilities, clean water systems, paver blocks, and community infrastructure
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🎉</div>
+                    <div class="dashboard-number">100+</div>
+                    <div class="dashboard-label">Community Events</div>
+                    <div class="dashboard-description">
+                        Cultural celebrations, awareness days, festivals, and community bonding activities
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about fade-in">
+        <div class="about-container">
+            <div class="section-header">
+                <div class="section-badge">Our Foundation</div>
+                <h2 class="section-title">About Samarthya Welfare Trust</h2>
+                <p class="section-description">
+                    A women-led organization dedicated to creating sustainable social change through 
+                    comprehensive community development programs and empowerment initiatives.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content slide-in-left">
+                    <p class="about-text">
+                        <strong>Samarthya Welfare Trust</strong> was established on 17th April 2017 by 
+                        <strong>Pallavi Deep</strong> along with seven other passionate women driven by an 
+                        unwavering commitment to social service and community empowerment.
+                    </p>
+                    <p class="about-text">
+                        Our organization stands as a shining example of women empowerment, where all 25 
+                        dedicated members are women who work tirelessly to serve those in need. We have 
+                        touched thousands of lives across Jamshedpur, Jharkhand, and continue to expand 
+                        our reach.
+                    </p>
+                    <p class="about-text">
+                        Through strategic partnerships with government initiatives, comprehensive health 
+                        programs, environmental conservation efforts, and community development projects, 
+                        we create sustainable, long-lasting impact.
+                    </p>
+                    
+                    <div class="founder-info">
+                        <div class="founder-name">Pallavi Deep</div>
+                        <div class="founder-title">Founder & President</div>
+                    </div>
+                </div>
+
+                <div class="certifications slide-in-right">
+                    <div class="cert-card">
+                        <div class="cert-icon">🏛️</div>
+                        <div class="cert-title">NITI Aayog Certified</div>
+                        <div class="cert-description">
+                            Official recognition from Government of India's premier policy think tank
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">📋</div>
+                        <div class="cert-title">12A Registration</div>
+                        <div class="cert-description">
+                            Income Tax exemption under Section 12A for charitable activities
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">💰</div>
+                        <div class="cert-title">80G Certification</div>
+                        <div class="cert-description">
+                            Tax deduction benefits for donors under Section 80G
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🌟</div>
+                        <div class="cert-title">100% Women Led</div>
+                        <div class="cert-description">
+                            Proudly led and operated entirely by dedicated women leaders
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission Section -->
+    <section id="vision" class="vision-mission fade-in">
+        <div class="vision-mission-container">
+            <div class="section-header">
+                <div class="section-badge">Our Foundation</div>
+                <h2 class="section-title">Vision • Mission • Achievement</h2>
+                <p class="section-description">
+                    Guided by clear principles and measurable outcomes, we're building a framework for 
+                    sustainable social change that resonates across generations.
+                </p>
+            </div>
+
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <div class="vision-icon">🎯</div>
+                    <h3 class="vision-title">Our Vision</h3>
+                    <p class="vision-description">
+                        Creating a healthy, strong, sustainable, and aware India where empowerment, prosperity, 
+                        and equality are not just ideals but lived realities. We envision communities where 
+                        every individual has the opportunity to thrive and contribute to collective progress.
+                    </p>
+                </div>
+
+                <div class="vision-card">
+                    <div class="vision-icon">🚀</div>
+                    <h3 class="vision-title">Our Mission</h3>
+                    <p class="vision-description">
+                        Through comprehensive awareness programs focusing on environmental conservation, natural 
+                        resource protection, and sustainable development, we empower women with essential skills 
+                        and knowledge to build a developed, self-reliant India that serves as a model for the world.
+                    </p>
+                </div>
+
+                <div class="vision-card">
+                    <div class="vision-icon">🏆</div>
+                    <h3 class="vision-title">Our Recognition</h3>
+                    <p class="vision-description">
+                        Proudly certified by NITI Aayog with 12A & 80G recognition, validating our commitment 
+                        to transparency, accountability, and measurable impact. This recognition empowers us 
+                        to scale our initiatives and attract strategic partnerships for greater social change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs fade-in">
+        <div class="programs-container">
+            <div class="section-header">
+                <div class="section-badge">Our Programs</div>
+                <h2 class="section-title">Comprehensive Social Impact Programs</h2>
+                <p class="section-description">
+                    Multi-dimensional approach addressing critical social challenges through innovative, 
+                    sustainable, and community-driven solutions across various sectors.
+                </p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">📢</div>
+                        <div class="program-title">Awareness & Education</div>
+                        <div class="program-subtitle">Building Informed Communities</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Comprehensive awareness campaigns spanning critical social, environmental, 
+                            and health issues to create informed and empowered communities.
+                        </p>
+                        <ul class="program-features">
+                            <li>Anti-tobacco and substance abuse awareness</li>
+                            <li>World Environment Day celebrations</li>
+                            <li>World Yoga Day and wellness programs</li>
+                            <li>Population awareness and family planning</li>
+                            <li>Senior citizen care and respect campaigns</li>
+                            <li>Sports day and physical fitness promotion</li>
+                            <li>Literacy drives and educational support</li>
+                            <li>Road safety and traffic awareness</li>
+                            <li>Water conservation and World Water Day</li>
+                            <li>Voter awareness and civic responsibility</li>
+                            <li>Women's rights and gender equality</li>
+                            <li>Menstrual hygiene awareness programs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🏛️</div>
+                        <div class="program-title">Government Partnerships</div>
+                        <div class="program-subtitle">Collaborative Development</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Strategic collaborations with government initiatives to maximize social 
+                            impact through infrastructure development and welfare programs.
+                        </p>
+                        <ul class="program-features">
+                            <li>Toilet facilities for girls' schools</li>
+                            <li>Paver block installation projects</li>
+                            <li>Heart surgery support for elderly women</li>
+                            <li>Kanyadan marriage assistance programs</li>
+                            <li>Pension support for elderly and disabled</li>
+                            <li>Government scheme awareness drives</li>
+                            <li>Documentation assistance programs</li>
+                            <li>Skill development partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🏥</div>
+                        <div class="program-title">Health & Wellness</div>
+                        <div class="program-subtitle">Comprehensive Healthcare</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Holistic health initiatives addressing preventive care, medical assistance, 
+                            and wellness promotion for community health improvement.
+                        </p>
+                        <ul class="program-features">
+                            <li>Dental checkup and treatment camps</li>
+                            <li>Eye examination and vision care</li>
+                            <li>Full-body health screening programs</li>
+                            <li>Hygiene infrastructure development</li>
+                            <li>Mental health awareness sessions</li>
+                            <li>Nutrition and wellness education</li>
+                            <li>Medical emergency assistance</li>
+                            <li>Health insurance awareness</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🤝</div>
+                        <div class="program-title">Social Responsibility</div>
+                        <div class="program-subtitle">Community Support</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Targeted support for vulnerable populations through direct assistance, 
+                            emergency relief, and community development initiatives.
+                        </p>
+                        <ul class="program-features">
+                            <li>Food distribution to leprosy ashrams</li>
+                            <li>Support for old age homes</li>
+                            <li>Educational materials for slum children</li>
+                            <li>Toys and sports equipment distribution</li>
+                            <li>Chhath Puja changing facility setup</li>
+                            <li>Disaster relief during floods and fires</li>
+                            <li>Emergency response coordination</li>
+                            <li>Community infrastructure support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🌟</div>
+                        <div class="program-title">Transformative Initiatives</div>
+                        <div class="program-subtitle">Large-Scale Impact</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Major impact projects creating lasting change through infrastructure, 
+                            accessibility, and comprehensive support systems.
+                        </p>
+                        <ul class="program-features">
+                            <li>Wheelchair provision for disabled elderly</li>
+                            <li>Clean drinking water for schools</li>
+                            <li>Annual blanket distribution (1000+ beneficiaries)</li>
+                            <li>COVID-19 relief and sanitization</li>
+                            <li>Grocery distribution during pandemic</li>
+                            <li>Mask and sanitizer distribution</li>
+                            <li>Massive tree plantation drives</li>
+                            <li>Sanitary pad distribution programs</li>
+                            <li>Justice support for domestic violence victims</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">💚</div>
+                        <div class="program-title">Community Wellness</div>
+                        <div class="program-subtitle">Cultural & Social Bonding</div>
+                    </div>
+                    <div class="program-content">
+                        <p class="program-description">
+                            Cultural celebrations and community bonding activities that strengthen 
+                            social ties and promote collective well-being.
+                        </p>
+                        <ul class="program-features">
+                            <li>Savan Mahotsav celebrations</li>
+                            <li>Dandiya Garba cultural events</li>
+                            <li>Family picnics and outings</li>
+                            <li>Community social gatherings</li>
+                            <li>Festival celebrations and support</li>
+                            <li>Cultural heritage preservation</li>
+                            <li>Inter-community harmony programs</li>
+                            <li>Youth engagement activities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+        <div class="contact-container">
+            <div class="section-header">
+                <div class="section-badge">Connect With Us</div>
+                <h2 class="section-title">Join Our Movement</h2>
+                <p class="section-description">
+                    Ready to be part of something bigger? Connect with us to explore partnership opportunities, 
+                    volunteer programs, or learn how you can contribute to our mission of social transformation.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info slide-in-left">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Our Hub</h3>
+                            <p>Jamshedpur, Jharkhand<br>Serving communities across Eastern India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Direct Connect</h3>
+                            <p>+91 7321063175<br>Available for partnerships and collaboration inquiries</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Digital Gateway</h3>
+                            <p>
+                                <a href="mailto:samarthyawelfaretrust@gmail.com" target="_blank" style="color: var(--text-secondary); text-decoration: none;">
+                                    samarthyawelfaretrust@gmail.com
+                                </a><br>
+                                Your ideas and support are always welcome
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌟</div>
+                        <div class="contact-details">
+                            <h3>Join Our Mission</h3>
+                            <p>Volunteer opportunities<br>Partnership programs<br>Community leadership roles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="volunteer-section slide-in-right">
+                    <h3 class="volunteer-title">Become a Volunteer</h3>
+                    <p class="volunteer-description">
+                        Join our team of dedicated women leaders and make a lasting impact in your community. 
+                        Whether you can contribute time, skills, or resources, every contribution matters in 
+                        building a better tomorrow.
+                    </p>
+                    <a href="mailto:samarthyawelfaretrust@gmail.com?subject=Volunteer Inquiry" target="_blank" class="volunteer-btn">
+                        Start Your Journey →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 40;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+                document.getElementById('theme-text').textContent = 'Light';
+            }
+            createParticles();
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.dashboard-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.includes('+') ? target + '+' : target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const dashboardSection = document.querySelector('.dashboard');
+        if (dashboardSection) {
+            statsObserver.observe(dashboardSection);
+        }
+
+        // Enhanced cursor trail effect
+        let mouseX = 0, mouseY = 0;
+        let trailX = 0, trailY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateTrail() {
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            const trail = document.createElement('div');
+            trail.style.position = 'fixed';
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            trail.style.width = '8px';
+            trail.style.height = '8px';
+            trail.style.background = 'radial-gradient(circle, rgba(30, 64, 175, 0.8), rgba(59, 130, 246, 0.4))';
+            trail.style.borderRadius = '50%';
+            trail.style.pointerEvents = 'none';
+            trail.style.zIndex = '9999';
+            trail.style.animation = 'trailFade 1.5s ease-out forwards';
+            
+            document.body.appendChild(trail);
+            
+            setTimeout(() => {
+                if (trail.parentNode) {
+                    trail.parentNode.removeChild(trail);
+                }
+            }, 1500);
+            
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Add trail animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes trailFade {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0.2); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        animateTrail();
+    </script>
+</body>
+</html>
