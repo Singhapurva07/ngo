@@ -223,6 +223,32 @@
             transform: translateY(-2px);
         }
 
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px) scale(1.1);
+        }
+
         /* Mobile Navigation Styles */
         @media (max-width: 768px) {
             .nav-toggle {
@@ -268,6 +294,11 @@
             .logo img {
                 width: 35px;
                 height: 35px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
 
@@ -406,10 +437,92 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* Enhanced Dashboard - Mobile First */
-        .dashboard {
+        /* Team Section */
+        .team-showcase {
             padding: 4rem 1rem;
             background: var(--bg-secondary);
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .team-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.15);
+            border: 4px solid var(--primary-blue);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .team-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .team-description {
+            text-align: center;
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+            margin-top: 2rem;
+        }
+
+        .team-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-text {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-stat {
+            text-align: center;
+        }
+
+        .team-stat-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .team-stat-label {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Enhanced Dashboard */
+        .dashboard {
+            padding: 4rem 1rem;
+            background: var(--bg-primary);
         }
 
         .dashboard-container {
@@ -450,7 +563,6 @@
             line-height: 1.6;
         }
 
-        /* Revolutionary Dashboard Grid */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -526,18 +638,17 @@
             line-height: 1.5;
         }
 
-        /* Mobile Optimized Sections */
-        .about, .vision-mission, .programs, .contact {
+        /* About, Vision, Programs sections */
+        .about, .vision-mission, .programs {
             padding: 4rem 1rem;
         }
 
-        .about-container, .vision-mission-container, .programs-container, .contact-container {
+        .about-container, .vision-mission-container, .programs-container {
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        /* About Section Mobile */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -619,7 +730,6 @@
             line-height: 1.4;
         }
 
-        /* Vision Mission Mobile */
         .vision-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -681,7 +791,6 @@
             text-align: center;
         }
 
-        /* Programs Mobile */
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -767,7 +876,18 @@
             margin-top: 2px;
         }
 
-        /* Contact Mobile */
+        /* Contact Section */
+        .contact {
+            padding: 4rem 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -816,30 +936,173 @@
             line-height: 1.5;
         }
 
-        .volunteer-section {
+        /* Donation Section */
+        .donation-section {
             background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
             color: white;
             padding: 3rem 2rem;
             border-radius: 24px;
             text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .donation-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .donation-quote {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donation-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .qr-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .upi-info {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .bank-details {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .bank-details h4 {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .bank-info {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .bank-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .bank-label {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .bank-value {
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* FIXED: Volunteer Section Visibility */
+        .volunteer-section {
+            background: var(--white);
+            color: var(--text-primary);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border: 3px solid var(--primary-blue);
+            position: relative;
+            z-index: 1;
+        }
+
+        [data-theme="dark"] .volunteer-section {
+            background: var(--white);
+            color: var(--text-primary);
+            border-color: var(--primary-blue);
         }
 
         .volunteer-title {
             font-size: clamp(2rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
+            color: var(--primary-blue);
         }
 
         .volunteer-description {
             font-size: clamp(1rem, 2.5vw, 1.1rem);
             margin-bottom: 2.5rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
         .volunteer-btn {
-            background: white;
-            color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: var(--white);
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -847,11 +1110,33 @@
             display: inline-block;
             transition: all 0.3s ease;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
+            box-shadow: 0 10px 30px var(--shadow);
         }
 
         .volunteer-btn:hover {
+            background: var(--dark-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        /* Footer Credit */
+        .footer-credit {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-top: 2rem;
+        }
+
+        .footer-credit a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-credit a:hover {
+            text-decoration: underline;
         }
 
         /* Scroll Animations */
@@ -928,6 +1213,14 @@
                 margin-left: 0;
                 margin-right: 0;
             }
+
+            .donation-methods {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                gap: 2rem;
+            }
         }
 
         /* Extra Small Mobile */
@@ -936,7 +1229,7 @@
                 padding: 5rem 0.5rem 3rem;
             }
 
-            .dashboard, .about, .vision-mission, .programs, .contact {
+            .dashboard, .about, .vision-mission, .programs, .contact, .team-showcase {
                 padding: 3rem 0.5rem;
             }
 
@@ -952,6 +1245,15 @@
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .donation-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .qr-code {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
@@ -996,6 +1298,12 @@
                 <li><a href="#programs" onclick="closeNav()">Programs</a></li>
                 <li><a href="#contact" onclick="closeNav()">Contact</a></li>
                 <li>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/g/18seofGFDF/" target="_blank" class="social-link" title="Facebook Group">📘</a>
+                        <a href="https://www.facebook.com/share/1BWfa8EpsS/" target="_blank" class="social-link" title="Facebook Page">📖</a>
+                    </div>
+                </li>
+                <li>
                     <button class="theme-toggle" onclick="toggleTheme()">
                         <span id="theme-icon">🌙</span>
                         <span id="theme-text">Dark</span>
@@ -1028,6 +1336,52 @@
             <div class="hero-visual">
                 <div class="hero-logo">
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-08%20151141-lKPtr6tYzbHqTbSwx6nzR4j5j8FOxk.png" alt="Samarthya Welfare Trust Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Showcase Section -->
+    <section class="team-showcase fade-in">
+        <div class="team-container">
+            <div class="section-header">
+                <div class="section-badge">Our Dedicated Team</div>
+                <h2 class="section-title">25 Women Leaders Making Change</h2>
+                <p class="section-description">
+                    Meet the passionate women behind Samarthya Welfare Trust - united in purpose, 
+                    dedicated to service, and committed to transforming communities across India.
+                </p>
+            </div>
+            
+            <div class="team-image">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2vvpYPMMRrr1OvAtfF4MWXK9q3CklD.png" alt="Samarthya Welfare Trust Team - 25 Women Leaders" loading="lazy">
+            </div>
+            
+            <div class="team-description">
+                <h3 class="team-title">100% Women-Led Organization</h3>
+                <p class="team-text">
+                    Our strength lies in our unity and shared vision. These remarkable women, led by founder 
+                    <strong>Pallavi Deep</strong>, represent the heart and soul of our organization. From diverse 
+                    backgrounds but united in purpose, they work tirelessly to serve communities, empower the 
+                    underprivileged, and create lasting social change.
+                </p>
+                <div class="team-stats">
+                    <div class="team-stat">
+                        <span class="team-stat-number">25</span>
+                        <span class="team-stat-label">Women Leaders</span>
+                    </div>
+                    <div class="team-stat">
+                        <span class="team-stat-number">7+</span>
+                        <span class="team-stat-label">Years Experience</span>
+                    </div>
+                    <div class="team-stat">
+                        <span class="team-stat-number">1000+</span>
+                        <span class="team-stat-label">Lives Touched</span>
+                    </div>
+                    <div class="team-stat">
+                        <span class="team-stat-number">100%</span>
+                        <span class="team-stat-label">Dedication</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1385,7 +1739,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Enhanced Contact & Donation Section -->
     <section id="contact" class="contact fade-in">
         <div class="contact-container">
             <div class="section-header">
@@ -1429,6 +1783,17 @@
                     </div>
 
                     <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h3>Social Media</h3>
+                            <p>
+                                <a href="https://www.facebook.com/share/g/18seofGFDF/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">Facebook Group</a><br>
+                                <a href="https://www.facebook.com/share/1BWfa8EpsS/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">Facebook Page</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
                         <div class="contact-icon">🌟</div>
                         <div class="contact-details">
                             <h3>Join Our Mission</h3>
@@ -1449,10 +1814,94 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Enhanced Donation Section -->
+            <div class="donation-section">
+                <h3 class="donation-title">Support Our Cause</h3>
+                <div class="donation-quote" id="donationQuote">
+                    "The best way to find yourself is to lose yourself in the service of others." - Mahatma Gandhi
+                </div>
+                
+                <div class="donation-methods">
+                    <div class="qr-section">
+                        <h4 style="margin-bottom: 1.5rem; font-size: clamp(1.2rem, 3vw, 1.4rem);">Quick UPI Payment</h4>
+                        <div class="qr-code">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-09%20at%2018.59.58_7cdb231d.jpg-AIajqPlZJE9PA9AQKrNVK3C8NiL4DZ.jpeg" alt="UPI QR Code for Donations" loading="lazy">
+                        </div>
+                        <div class="upi-info">
+                            UPI ID: pallavi.deep7@okhdfcbank
+                        </div>
+                        <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); opacity: 0.9;">
+                            Scan with any UPI app to donate instantly
+                        </p>
+                    </div>
+
+                    <div class="bank-details">
+                        <h4>Bank Transfer Details</h4>
+                        <div class="bank-info">
+                            <div class="bank-item">
+                                <span class="bank-label">Account Name:</span>
+                                <span class="bank-value">Samarthya Welfare Trust</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">Branch:</span>
+                                <span class="bank-value">Adityapur</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">Account No:</span>
+                                <span class="bank-value">60461254374</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">IFSC Code:</span>
+                                <span class="bank-value">MAHB0002257</span>
+                            </div>
+                        </div>
+                        <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); opacity: 0.9; margin-top: 1rem; text-align: center;">
+                            Your donations are eligible for 80G tax benefits
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Footer Credit -->
+    <div class="footer-credit">
+        Created by <a href="mailto:singhapurva297@gmail.com">Apurva Singh</a> • 
+        <a href="mailto:singhapurva297@gmail.com">singhapurva297@gmail.com</a> • 
+        <a href="tel:+919304095277">9304095277</a>
+    </div>
+
     <script>
+        // Inspirational quotes for donation section
+        const donationQuotes = [
+            "The best way to find yourself is to lose yourself in the service of others. - Mahatma Gandhi",
+            "We make a living by what we get, but we make a life by what we give. - Winston Churchill",
+            "No one has ever become poor by giving. - Anne Frank",
+            "The meaning of life is to find your gift. The purpose of life is to give it away. - Pablo Picasso",
+            "Alone we can do so little; together we can do so much. - Helen Keller",
+            "Service to others is the rent you pay for your room here on earth. - Muhammad Ali",
+            "The smallest act of kindness is worth more than the grandest intention. - Oscar Wilde",
+            "We rise by lifting others. - Robert Ingersoll"
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function changeQuote() {
+            const quoteElement = document.getElementById('donationQuote');
+            if (quoteElement) {
+                quoteElement.style.opacity = '0';
+                setTimeout(() => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % donationQuotes.length;
+                    quoteElement.textContent = donationQuotes[currentQuoteIndex];
+                    quoteElement.style.opacity = '1';
+                }, 500);
+            }
+        }
+
+        // Change quote every 5 seconds
+        setInterval(changeQuote, 5000);
+
         // Mobile Navigation Toggle
         function toggleNav() {
             const navLinks = document.getElementById('navLinks');
@@ -1587,3 +2036,4 @@
     </script>
 </body>
 </html>
+
