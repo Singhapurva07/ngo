@@ -994,37 +994,6 @@
             z-index: 1;
         }
 
-        .qr-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 1rem;
-            border-radius: 16px;
-            overflow: hidden;
-            background: white;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .qr-code img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .upi-info {
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
         .bank-details {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
@@ -1032,6 +1001,9 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: left;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .bank-details h4 {
@@ -1215,7 +1187,7 @@
             }
 
             .donation-methods {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
 
             .nav-links {
@@ -1249,11 +1221,6 @@
 
             .donation-methods {
                 grid-template-columns: 1fr;
-            }
-
-            .qr-code {
-                width: 150px;
-                height: 150px;
             }
         }
     </style>
@@ -1830,19 +1797,6 @@
                 </div>
                 
                 <div class="donation-methods">
-                    <div class="qr-section">
-                        <h4 style="margin-bottom: 1.5rem; font-size: clamp(1.2rem, 3vw, 1.4rem);">Quick UPI Payment</h4>
-                        <div class="qr-code">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-09%20at%2018.59.58_7cdb231d.jpg-AIajqPlZJE9PA9AQKrNVK3C8NiL4DZ.jpeg" alt="UPI QR Code for Donations" loading="lazy">
-                        </div>
-                        <div class="upi-info">
-                            UPI ID: pallavi.deep7@okhdfcbank
-                        </div>
-                        <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); opacity: 0.9;">
-                            Scan with any UPI app to donate instantly
-                        </p>
-                    </div>
-
                     <div class="bank-details">
                         <h4>Bank Transfer Details</h4>
                         <div class="bank-info">
@@ -1862,9 +1816,21 @@
                                 <span class="bank-label">IFSC Code:</span>
                                 <span class="bank-value">MAHB0002257</span>
                             </div>
+                            <div class="bank-item">
+                                <span class="bank-label">Account Type:</span>
+                                <span class="bank-value">Savings Account</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">Bank Name:</span>
+                                <span class="bank-value">Bank of Maharashtra</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">Registered Address:</span>
+                                <span class="bank-value">Jamshedpur, Jharkhand</span>
+                            </div>
                         </div>
                         <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); opacity: 0.9; margin-top: 1rem; text-align: center;">
-                            Your donations are eligible for 80G tax benefits
+                            Your donations are eligible for 80G tax benefits under Income Tax Act
                         </p>
                     </div>
                 </div>
