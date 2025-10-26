@@ -987,11 +987,14 @@
 
         .donation-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 2rem;
             position: relative;
             z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .bank-details {
@@ -1001,9 +1004,6 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: left;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .bank-details h4 {
@@ -1038,7 +1038,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* FIXED: Volunteer Section Visibility */
+        /* Volunteer Section */
         .volunteer-section {
             background: var(--white);
             color: var(--text-primary);
@@ -1185,14 +1185,6 @@
                 margin-left: 0;
                 margin-right: 0;
             }
-
-            .donation-methods {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 2rem;
-            }
         }
 
         /* Extra Small Mobile */
@@ -1217,10 +1209,6 @@
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .donation-methods {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1739,7 +1727,7 @@
                         <div class="contact-icon">📱</div>
                         <div class="contact-details">
                             <h3>Direct Connect</h3>
-                            <p>+91 7321063175<br>Available for partnerships and collaboration inquiries</p>
+                            <p>+91 7321084576<br>Available for partnerships and collaboration inquiries</p>
                         </div>
                     </div>
 
